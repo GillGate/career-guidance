@@ -64,10 +64,10 @@ function html() {
 function styles() {
     return gulp.src(config.src + config.less.src)
        .pipe(less())
-       .pipe(gulpif(isDev, sourcemaps.init()))
+       // .pipe(gulpif(isDev, sourcemaps.init()))
        .pipe(gcmq())
        .pipe(autoprefixer({
-            browsers: ['> 0.15%'],
+            overrideBrowserslist: ['defaults'],
             cascade: false
        }))
        .pipe(gulpif(isDev, gulp.dest(config.build + config.less.dest)))
@@ -75,7 +75,7 @@ function styles() {
             level: 2
         }))
        .pipe(rename("style.min.css"))
-       .pipe(gulpif(isDev, sourcemaps.write('.')))
+       // .pipe(gulpif(isDev, sourcemaps.write('.')))
        .pipe(gulp.dest(config.build + config.less.dest))
        .pipe(gulpif(isSync, browserSync.stream()));
 }
