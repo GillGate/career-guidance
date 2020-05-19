@@ -1,5 +1,7 @@
 @import 'smart-grid.less';
-@import 'anormalize.less';
+@import 'vars.less';
+
+.reset();
 
 img {
 	max-width: 100%;
@@ -7,16 +9,81 @@ img {
 }
 
 header {
-	height: 58px;
+	height: 65px;
 	background: #000;
 }
 
-.test__item {
-	border-bottom: 1px solid #000;
-	display: none;
+.container {
+	.wrapper();
 }
-.test__item--active {
-	display: block;
+
+.reveal__wrapper {
+	margin-top: 50px;
+}
+
+.test {
+	text-align: center;
+	margin: 0 auto;
+	box-sizing: border-box;
+
+	&__order {
+		margin-top: 30px;
+		font-size: 20px;
+
+		span {
+			font-weight: bold;
+		}
+	}
+
+	&__item {
+		display: none;
+	
+		&--active {
+			display: block;
+		}
+	}
+
+	&__button {
+		cursor: pointer;
+		user-select: none;
+
+		input {
+			display: none;
+		}
+	}
+}
+
+.isenk {
+	width: 820px;
+	padding: 0 20px;
+	border: @global 4px solid;
+	border-radius: 25px;
+
+
+	&__title {
+		margin-top: 30px;
+		font-size: 28px;
+		height: 64px;
+	}
+
+	&__buttons {
+		margin: 35px 0;
+		font-size: 25px;
+	}
+
+	&__button {
+		padding: 10px 25px; 
+		border-radius: 5px;
+
+		&--yes {
+			background: green;
+			margin-right: 15px;
+		}
+
+		&--no {
+			background: red;
+		}
+	}
 }
 
 .golland__wrapper, .ddo__wrapper {
