@@ -23,7 +23,6 @@ header {
 
 .test {
 	text-align: center;
-	margin: 0 auto;
 	box-sizing: border-box;
 
 	&__order {
@@ -36,11 +35,19 @@ header {
 	}
 
 	&__item {
+		width: 1000px;
+		margin: 0 auto;
 		display: none;
 	
 		&--active {
 			display: block;
 		}
+	}
+
+	&__buttons {
+		display: flex;
+		justify-content: center;
+		margin-top: 30px;
 	}
 
 	&__button {
@@ -51,14 +58,84 @@ header {
 			display: none;
 		}
 	}
+
+	&__imgWrapper {
+		width: 100%;
+	    height: 100%;
+	    margin: 0;
+	    display: flex;
+	    flex-direction: column;
+
+		figcaption {
+			margin: auto;
+			padding: 20px 10px;
+			font-size: 25px;
+		}
+	}
+}
+
+.golddo {
+
+	&__button {
+		width: 370px;
+		transition: border .3s ease;
+		border: 3px solid transparent;
+		border-radius: 34px;
+
+		&:hover {
+			border-color: @global;
+		}
+
+		&:first-child {
+			margin-right: 50px;
+		}
+	}
+
+	&__image {
+
+		img {
+			border-radius: 30px 30px 0 0;
+		}
+	}
+}
+
+.socio {
+
+	&__item {
+
+	}
+
+	&__buttons {
+		width: 700px;
+		margin: 30px auto; 
+		padding: 30px 15px;
+		background: #ccc;
+		border-radius: 25px;
+	}
+
+	&__button {
+		display: block;
+		margin: 15px 0;
+		padding: 15px 25px;
+		font-size: 26px;
+		background: #fff;
+		border-radius: 25px;
+		transition: background .4s ease;
+
+		&:hover {
+			background: #eee;
+		}
+	}
 }
 
 .isenk {
-	width: 820px;
-	padding: 0 20px;
-	border: @global 4px solid;
-	border-radius: 25px;
 
+	&__item {
+		width: 820px;
+		padding: 0 20px;
+		border: @global 4px solid;
+		border-radius: 25px;
+	}
 
 	&__title {
 		margin-top: 30px;
@@ -84,8 +161,4 @@ header {
 			background: red;
 		}
 	}
-}
-
-.golland__wrapper, .ddo__wrapper {
-	width: 320px;
 }

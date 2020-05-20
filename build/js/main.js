@@ -4,8 +4,11 @@ $(function() {
 
 	$('.test').on('click', '.test__button', function() {
 		let $testItem = $(this).closest('.test__item');
-		$testItem.removeClass('test__item--active');
-		$testItem.next().addClass('test__item--active');
+
+		window.setTimeout(function() {
+			$testItem.removeClass('test__item--active');
+			$testItem.next().addClass('test__item--active');
+		}, 500);
 
 		if($testItem.hasClass('test__item--last')) {
 			getResult( $(this).closest('.test') );

@@ -131,7 +131,6 @@ header {
 
 .test {
   text-align: center;
-  margin: 0 auto;
   box-sizing: border-box;
 }
 
@@ -145,11 +144,19 @@ header {
 }
 
 .test__item {
+  width: 1000px;
+  margin: 0 auto;
   display: none;
 }
 
 .test__item--active {
   display: block;
+}
+
+.test__buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .test__button {
@@ -164,7 +171,62 @@ header {
   display: none;
 }
 
-.isenk {
+.test__imgWrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.test__imgWrapper figcaption {
+  margin: auto;
+  padding: 20px 10px;
+  font-size: 25px;
+}
+
+.golddo__button {
+  width: 370px;
+  transition: border 0.3s ease;
+  border: 3px solid transparent;
+  border-radius: 34px;
+}
+
+.golddo__button:hover {
+  border-color: #0037a1;
+}
+
+.golddo__button:first-child {
+  margin-right: 50px;
+}
+
+.golddo__image img {
+  border-radius: 30px 30px 0 0;
+}
+
+.socio__buttons {
+  width: 700px;
+  margin: 30px auto;
+  padding: 30px 15px;
+  background: #ccc;
+  border-radius: 25px;
+}
+
+.socio__button {
+  display: block;
+  margin: 15px 0;
+  padding: 15px 25px;
+  font-size: 26px;
+  background: #fff;
+  border-radius: 25px;
+  transition: background 0.4s ease;
+}
+
+.socio__button:hover {
+  background: #eee;
+}
+
+.isenk__item {
   width: 820px;
   padding: 0 20px;
   border: #0037a1 4px solid;
@@ -194,11 +256,6 @@ header {
 
 .isenk__button--no {
   background: red;
-}
-
-.golland__wrapper,
-.ddo__wrapper {
-  width: 320px;
 }
 
 @media screen and (max-width: 1024px) {
