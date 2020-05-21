@@ -108,6 +108,10 @@ img {
   height: auto;
 }
 
+body {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -115,7 +119,7 @@ img {
 
 header {
   height: 65px;
-  background: #000;
+  background: #43aee8;
 }
 
 .container {
@@ -125,13 +129,76 @@ header {
   padding-right: 20px;
 }
 
+.reveal {
+  text-align: center;
+}
+
 .reveal__wrapper {
   margin-top: 50px;
 }
 
+.reveal__description {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.reveal__image {
+  width: 600px;
+  min-height: 340px;
+  margin: 0 auto -77px;
+}
+
+.reveal__title {
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.reveal__text {
+  font-size: 18px;
+  margin-top: 30px;
+  padding: 0 110px;
+}
+
+.reveal__text span {
+  font-weight: bold;
+}
+
+.reveal__btn {
+  margin-top: 35px;
+  padding: 12px 24px;
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-size: 23px;
+  background-color: #f55a4e;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.reveal__btn:hover {
+  background-color: #f44336;
+}
+
+.reveal--isenk .reveal__title {
+  background-color: rgba(207, 225, 233, 0.8);
+}
+
+.reveal--golland .reveal__title {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.reveal--ddo .reveal__title {
+  background-color: rgba(233, 227, 215, 0.8);
+}
+
+.reveal--socio .reveal__title {
+  background-color: rgba(235, 229, 241, 0.5);
+}
+
 .test {
+  display: none;
   text-align: center;
-  box-sizing: border-box;
 }
 
 .test__order {
@@ -147,6 +214,7 @@ header {
   width: 1000px;
   margin: 0 auto;
   display: none;
+  box-sizing: border-box;
 }
 
 .test__item--active {
@@ -181,15 +249,16 @@ header {
 
 .test__imgWrapper figcaption {
   margin: auto;
-  padding: 20px 10px;
+  padding: 20px 20px;
   font-size: 25px;
 }
 
 .golddo__button {
   width: 370px;
   transition: border 0.3s ease;
-  border: 3px solid transparent;
+  border: 3px solid #43aee8;
   border-radius: 34px;
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.3), 0 4px 25px 0px rgba(0, 0, 0, 0.08), 0 8px 10px -5px rgba(0, 0, 0, 0.14);
 }
 
 .golddo__button:hover {
@@ -204,22 +273,48 @@ header {
   border-radius: 30px 30px 0 0;
 }
 
+.socio {
+  margin-top: 100px;
+}
+
+.socio__item {
+  position: relative;
+}
+
+.socio__order {
+  display: inline-block;
+  margin: 0;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: #f6675d;
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .socio__buttons {
   width: 700px;
   margin: 30px auto;
-  padding: 30px 15px;
-  background: #ccc;
+  padding: 30px 30px;
+  background: #ebf6fd;
   border-radius: 25px;
+  box-sizing: border-box;
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.3), 0 4px 25px 0px rgba(0, 0, 0, 0.08), 0 8px 10px -5px rgba(0, 0, 0, 0.14);
 }
 
 .socio__button {
-  display: block;
-  margin: 15px 0;
-  padding: 15px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 78px;
+  margin: 20px 0;
+  padding: 15px 55px;
   font-size: 26px;
   background: #fff;
-  border-radius: 25px;
+  border-radius: 20px;
   transition: background 0.4s ease;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
 .socio__button:hover {
@@ -228,34 +323,46 @@ header {
 
 .isenk__item {
   width: 820px;
-  padding: 0 20px;
+  padding: 0 40px;
   border: #0037a1 4px solid;
   border-radius: 25px;
 }
 
 .isenk__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 111px;
   margin-top: 30px;
   font-size: 28px;
-  height: 64px;
 }
 
 .isenk__buttons {
-  margin: 35px 0;
+  margin: 55px 0 50px;
   font-size: 25px;
 }
 
 .isenk__button {
   padding: 10px 25px;
   border-radius: 5px;
+  transition: background 0.2s ease;
 }
 
 .isenk__button--yes {
-  background: green;
-  margin-right: 15px;
+  background-color: #4caf50;
+  margin-right: 25px;
+}
+
+.isenk__button--yes:hover {
+  background-color: #449d48;
 }
 
 .isenk__button--no {
-  background: red;
+  background-color: #f44336;
+}
+
+.isenk__button--no:hover {
+  background-color: #e11b0c;
 }
 
 @media screen and (max-width: 1024px) {

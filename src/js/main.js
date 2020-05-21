@@ -1,18 +1,29 @@
 $(function() {
+	let $test = $('.test');
+
+	$('.reveal__btn').on('click', function() {
+		$(this).parent().fadeOut(300, function() {
+			$test.fadeIn(300);
+		});
+	});
+
 	$('.test__item:first').addClass('test__item--active');
 	$('.test__item:last').addClass('test__item--last');
 
-	$('.test').on('click', '.test__button', function() {
+	$($test).on('click', '.test__button', function() {
 		let $testItem = $(this).closest('.test__item');
 
 		window.setTimeout(function() {
 			$testItem.removeClass('test__item--active');
 			$testItem.next().addClass('test__item--active');
-		}, 500);
+		}, 10);
 
 		if($testItem.hasClass('test__item--last')) {
-			getResult( $(this).closest('.test') );
+			getResult($test);
 		}
+	});
+	$($test).on('dragstart', '.test__image img', function(e) {
+		e.preventDefault();
 	});
 
 	function getValues(selector) {
