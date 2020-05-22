@@ -13,12 +13,11 @@ $(function() {
 	$($test).on('click', '.test__button', function() {
 		let $testItem = $(this).closest('.test__item');
 
-		window.setTimeout(function() {
-			$testItem.removeClass('test__item--active');
-			$testItem.next().addClass('test__item--active');
-		}, 10);
+		$testItem.removeClass('test__item--active');
+		$testItem.next().addClass('test__item--active');
 
 		if($testItem.hasClass('test__item--last')) {
+			$test.fadeOut(500);
 			getResult($test);
 		}
 	});
@@ -58,6 +57,10 @@ $(function() {
 		let extraversionPoints 	= 0;
 		let neuroticismPoints 	= 0;
 		let liePoints 			= 0;
+
+		let isExtrovert = false;
+		let isStable = false;
+		// let isFair = false;
 
 		if(isenkValues[1]) {
 			extraversionPoints++;
@@ -231,41 +234,31 @@ $(function() {
 			neuroticismPoints++;
 		}
 
-		if(extraversionPoints < 5) {
-			console.log('грубокий интроверт');
-		} else if(extraversionPoints < 9) {
-			console.log('интроверт');
-		} else if(extraversionPoints < 12) {
-			console.log('склонность к интроверсии');
-		} else if(extraversionPoints = 12) {
-			console.log('амбиаверт');
-		} else if(extraversionPoints > 12) {
-			console.log('склонность к экстраверсии');
-		} else if(extraversionPoints > 15) {
-			console.log('экстраверт');
-		} else {
-			console.log('яркий экстраверт');
+		if(extraversionPoints >= 11) {
+			isExtrovert = true;
 		}
-
-		if(neuroticismPoints < 9) {
-			console.log('низкий уровень нейротизма');
-		} else if(neuroticismPoints > 9 && neuroticismPoints < 13) {
-			console.log('среднее значение');
-		} else if(extraversionPoints > 13) {
-			console.log('высокий уровень нейротизма');
-		} else {
-			console.log('очень высокий уровень нейротизма');
+		if(neuroticismPoints < 12) {
+			isStable = true;
 		}
-
+		/*
 		if(liePoints < 4) {
-			console.log('норма');
+			isFair = true;
+		}
+		*/
+
+		if((isExtrovert) && (isStable)) {
+			$('.isenkResult__item--sanguine').fadeIn(500);
+		} else if((!isExtrovert) && (isStable)) {
+			$('.isenkResult__item--phlegmatic').fadeIn(500);
+		} else if((!isExtrovert) && (!isStable)) {
+			$('.isenkResult__item--melancholic').fadeIn(500);
 		} else {
-			console.log('неискренность в ответах');
+			$('.isenkResult__item--choleric').fadeIn(500);
 		}
 	}
 
 	function getGollandResult() {
-		let gollandResult = getValues('.golland__button input:even');
+		let gollandResult = getValues('.golddo__button input:even');
 
 		let realPoints 				= 0;
 		let intellectualPoints 		= 0;
@@ -495,10 +488,53 @@ $(function() {
 		];
 
 		let gollandArray = pointsArray.map(function(item) {
-			return Math.round(item / 14 * 100);
+			return Math.ceil((item / 14 * 100) / 10);
 		});
 
-		console.log(gollandArray);
+		let ctx = document.querySelector('#gollandChart').getContext('2d');
+		let chart = new Chart(ctx, {
+			type: 'radar',
+			data: {
+		        labels: ['Реалистический тип', 'Интеллектуальный тип', 'Социальный тип', 'Конвенциальный тип', 'Предприимчивый тип', 'Артистический тип'],
+		        datasets: [{
+		            backgroundColor: 'rgba(67, 174, 232, 0.5)',
+		            borderColor: 'rgb(0, 55, 161)',
+		            data: gollandArray
+		        }]
+		    },
+		    options: {
+		    	title: {
+		    		display: true,
+            		text: 'Результаты теста',
+            		fontFamily: "'Roboto Slab', 'Times New Roman', 'serif'",
+            		color: '#000',
+            		fontSize: 28,
+            		padding: 30
+		    	},
+		    	tooltips: {
+		    		enabled: false
+		    	},
+		    	legend: {
+		    		display: false
+		    	},
+				scale: {
+			        ticks: {
+			            suggestedMin: 0,
+			            suggestedMax: 10,
+			            step: 10
+			        },
+			        pointLabels: {
+			        	fontFamily: "'Roboto Slab', 'Times New Roman', 'serif'",
+			        	fontSize: 16,
+			        	callback: function(value, index, values) {
+			        		return value + ` (${gollandArray[index]})`;
+			        	}
+			        }
+			    },
+		    }	
+		});
+
+		$('.gollandResult').fadeIn(300);
 	}
 
 	function getDDOResult() {

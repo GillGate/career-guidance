@@ -1,5 +1,6 @@
 @import 'smart-grid.less';
 @import 'vars.less';
+@import 'chart.less';
 
 .reset();
 
@@ -270,6 +271,55 @@ header {
 			&:hover {
 				background-color: darken(@red, 12%);
 			}
+		}
+	}
+}
+
+.isenkResult {
+	&__item {
+		width: 600px;
+		margin: 0 auto;
+		display: none;
+	}
+
+	&__title {
+		font-weight: bold;
+		font-size: 34px;
+	}
+
+	&__text {
+		margin-top: 30px;
+		font-size: 18px;
+	}
+}
+
+.gollandResult {
+	display: none;
+	text-align: left;
+
+	&__chart {
+	    width: 1100px;
+	    margin: 0 auto;
+	    position: relative;
+	}
+
+	&__wrapper {
+		width: 900px;
+		margin: 70px auto;
+	}
+
+	&__title {
+		margin-top: 30px;
+		font-weight: bold;
+		font-size: 26px;
+	}
+
+	&__text {
+		margin-top: 16px;
+		font-size: 18px;
+
+		span {
+			font-weight: bold;
 		}
 	}
 }
