@@ -197,6 +197,7 @@ header {
 
 .reveal {
   text-align: center;
+  font-size: 18px;
 }
 
 .reveal__wrapper {
@@ -222,7 +223,6 @@ header {
 }
 
 .reveal__text {
-  font-size: 18px;
   margin-top: 30px;
   padding: 0 110px;
 }
@@ -237,13 +237,24 @@ header {
   font-family: "Roboto Slab", "Times New Roman", serif;
   font-size: 23px;
   background-color: #f55a4e;
-  border: none;
+  color: #000;
+  border: 3px solid #fff;
   border-radius: 8px;
+  transition: color 0.3s ease, background 0.3s ease;
   cursor: pointer;
 }
 
 .reveal__btn:hover {
-  background-color: #f44336;
+  background-color: #f32c1e;
+}
+
+.reveal__btn:focus {
+  outline: none;
+  color: #00000078;
+}
+
+.reveal__result {
+  display: none;
 }
 
 .reveal--isenk .reveal__title {
@@ -340,7 +351,7 @@ header {
 }
 
 .socio {
-  margin-top: 100px;
+  padding-top: 18px;
 }
 
 .socio__item {
@@ -352,7 +363,7 @@ header {
   margin: 0;
   padding: 5px 10px;
   border-radius: 10px;
-  background: #f6675d;
+  background: #f55549;
   position: absolute;
   top: -18px;
   left: 50%;
@@ -431,6 +442,61 @@ header {
   background-color: #e11b0c;
 }
 
+.testResult__wrapper {
+  width: 900px;
+  margin: 70px auto;
+  font-size: 18px;
+}
+
+.testResult__item {
+  display: none;
+}
+
+.testResult__caption {
+  font-size: 22px;
+}
+
+.testResult__image {
+  width: 270px;
+  min-height: 340px;
+  margin: 30px auto;
+}
+
+.testResult__title {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.testResult__text {
+  padding: 0 100px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.testResult__text p {
+  padding-top: 10px;
+}
+
+.testResult__text span {
+  font-weight: bold;
+}
+
+.testResult__list {
+  padding-left: 25px;
+}
+
+.testResult__list li {
+  display: list-item;
+  list-style: square;
+}
+
+.testResult__chart {
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
 .isenkResult__item {
   width: 600px;
   margin: 0 auto;
@@ -440,42 +506,7 @@ header {
 .isenkResult__title {
   font-weight: bold;
   font-size: 34px;
-}
-
-.isenkResult__text {
-  margin-top: 30px;
-  font-size: 18px;
-}
-
-.gollandResult {
-  display: none;
-  text-align: left;
-}
-
-.gollandResult__chart {
-  width: 1100px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.gollandResult__wrapper {
-  width: 900px;
-  margin: 70px auto;
-}
-
-.gollandResult__title {
-  margin-top: 30px;
-  font-weight: bold;
-  font-size: 26px;
-}
-
-.gollandResult__text {
-  margin-top: 16px;
-  font-size: 18px;
-}
-
-.gollandResult__text span {
-  font-weight: bold;
+  margin-bottom: 30px;
 }
 
 @media screen and (max-width: 1024px) {

@@ -24,6 +24,7 @@ header {
 
 .reveal {
 	text-align: center;
+	font-size: 18px;
 
 	&__wrapper {
 		margin-top: 50px;
@@ -48,7 +49,6 @@ header {
 	}
 
 	&__text {
-		font-size: 18px;
 		margin-top: 30px;
 		padding: 0 110px;
 
@@ -63,13 +63,24 @@ header {
 		font-family: "Roboto Slab","Times New Roman", serif;
 		font-size: 23px;
 		background-color: lighten(@red, 5%);
-		border: none;
+		color: #000;
+		border: 3px solid #fff;
 		border-radius: 8px;
+		transition: color .3s ease, background .3s ease;
 		cursor: pointer;
 
 		&:hover {
-			background-color: @red;
+			background-color: darken(@red, 5%);
 		}
+
+		&:focus {
+			outline: none;
+			color: #00000078;
+		}
+	}
+
+	&__result {
+		display: none;
 	}
 }
 
@@ -181,7 +192,7 @@ header {
 }
 
 .socio {
-	margin-top: 100px;
+	padding-top: 18px;
 
 	&__item {
 		position: relative;
@@ -192,7 +203,7 @@ header {
 		margin: 0;
 		padding: 5px 10px;
 		border-radius: 10px;
-		background: lighten(@red, 8%);
+		background: lighten(@red, 4%);
 		position: absolute;
 		top: -18px;
 		left: 50%;
@@ -275,37 +286,26 @@ header {
 	}
 }
 
-.isenkResult {
-	&__item {
-		width: 600px;
-		margin: 0 auto;
-		display: none;
-	}
-
-	&__title {
-		font-weight: bold;
-		font-size: 34px;
-	}
-
-	&__text {
-		margin-top: 30px;
-		font-size: 18px;
-	}
-}
-
-.gollandResult {
-	display: none;
-	text-align: left;
-
-	&__chart {
-	    width: 1100px;
-	    margin: 0 auto;
-	    position: relative;
-	}
-
+.testResult {
+	
 	&__wrapper {
 		width: 900px;
 		margin: 70px auto;
+	    font-size: 18px;
+	}
+
+	&__item {
+		display: none;
+	}
+
+	&__caption {
+		font-size: 22px;
+	}
+
+	&__image {
+		width: 270px;
+		min-height: 340px;
+		margin: 30px auto;
 	}
 
 	&__title {
@@ -315,11 +315,50 @@ header {
 	}
 
 	&__text {
-		margin-top: 16px;
-		font-size: 18px;
+		padding: 0 100px;
+		margin-top: 30px;
+		text-align: left;
 
+		p {
+			padding-top: 10px;
+		}
+		
 		span {
 			font-weight: bold;
 		}
+	}
+
+	&__list {
+		padding-left: 25px;
+
+		li {
+			display: list-item;
+			list-style: square;
+		}
+	}
+
+	&__chart {
+	    width: 1100px;
+	    margin: 0 auto;
+	    position: relative;
+	}
+}
+
+.isenkResult {
+
+	&__item {
+		width: 600px;
+		margin: 0 auto;
+		display: none;
+	}
+
+	&__title {
+		font-weight: bold;
+		font-size: 34px;
+		margin-bottom: 30px;
+	}
+
+	&__text {
+		// margin-top: 30px;
 	}
 }

@@ -37,6 +37,8 @@ $(function() {
 	}
 
 	function getResult(test) {
+		$('.reveal__result').fadeIn(500);
+
 		if (test.hasClass('isenk')) {
 			getIsenkResult();
 		}
@@ -247,13 +249,13 @@ $(function() {
 		*/
 
 		if((isExtrovert) && (isStable)) {
-			$('.isenkResult__item--sanguine').fadeIn(500);
+			$('.isenkResult__item--sanguine').show();
 		} else if((!isExtrovert) && (isStable)) {
-			$('.isenkResult__item--phlegmatic').fadeIn(500);
+			$('.isenkResult__item--phlegmatic').show();
 		} else if((!isExtrovert) && (!isStable)) {
-			$('.isenkResult__item--melancholic').fadeIn(500);
+			$('.isenkResult__item--melancholic').show();
 		} else {
-			$('.isenkResult__item--choleric').fadeIn(500);
+			$('.isenkResult__item--choleric').show();
 		}
 	}
 
@@ -491,11 +493,19 @@ $(function() {
 			return Math.ceil((item / 14 * 100) / 10);
 		});
 
-		let ctx = document.querySelector('#gollandChart').getContext('2d');
-		let chart = new Chart(ctx, {
+		let ctxGolland = document.querySelector('#gollandChart').getContext('2d');
+		
+		let chartGolland = new Chart(ctxGolland, {
 			type: 'radar',
 			data: {
-		        labels: ['Реалистический тип', 'Интеллектуальный тип', 'Социальный тип', 'Конвенциальный тип', 'Предприимчивый тип', 'Артистический тип'],
+		        labels: [
+			        'Реалистический тип', 
+			        'Интеллектуальный тип', 
+			        'Социальный тип', 
+			        'Конвенциальный тип', 
+			        'Предприимчивый тип', 
+			        'Артистический тип'
+		        ],
 		        datasets: [{
 		            backgroundColor: 'rgba(67, 174, 232, 0.5)',
 		            borderColor: 'rgb(0, 55, 161)',
@@ -533,8 +543,6 @@ $(function() {
 			    },
 		    }	
 		});
-
-		$('.gollandResult').fadeIn(300);
 	}
 
 	function getDDOResult() {
@@ -650,16 +658,63 @@ $(function() {
 		let ddoArray = [
 			hNature,
 			hTech,
-			hHuman,
+			hArt,
 			hSign,
-			hArt
+			hHuman
 		];
 
-		console.log(ddoArray);
+		let ctxDDO = document.querySelector('#ddoChart').getContext('2d');
+		
+		let chartDDO = new Chart(ctxDDO, {
+			type: 'radar',
+			data: {
+		        labels: [
+			        'Человек-природа', 
+			        'Человек-техника', 
+			        'Человек-художественный образ',
+			        'Человек-знаковая система', 
+			        'Человек-человек'
+			    ],
+		        datasets: [{
+		            backgroundColor: 'rgba(67, 174, 232, 0.5)',
+		            borderColor: 'rgb(0, 55, 161)',
+		            data: ddoArray
+		        }]
+		    },
+		    options: {
+		    	title: {
+		    		display: true,
+            		text: 'Результаты теста',
+            		fontFamily: "'Roboto Slab', 'Times New Roman', 'serif'",
+            		color: '#000',
+            		fontSize: 28,
+            		padding: 30
+		    	},
+		    	tooltips: {
+		    		enabled: false
+		    	},
+		    	legend: {
+		    		display: false
+		    	},
+				scale: {
+			        ticks: {
+			            suggestedMin: 0,
+			            suggestedMax: 8,
+			            step: 8
+			        },
+			        pointLabels: {
+			        	fontFamily: "'Roboto Slab', 'Times New Roman', 'serif'",
+			        	fontSize: 16,
+			        	callback: function(value, index) {
+			        		return value + ` (${ddoArray[index]})`;
+			        	}
+			        }
+			    },
+		    }	
+		});
 	}
-
 	function getSocioResult() {
-		let socioResult = getValues('socio__button input:even');
+		let socioResult = getValues('.socio__button input:even');
 
 		let extraversionPoints 	= 0;
 		let introversionPoints 	= 0;
@@ -671,6 +726,11 @@ $(function() {
 		let ethicPoints 		= 0;
 		let initiativePoints 	= 0;
 		let terminalPoints		= 0;
+
+		let firstLetter 	= '';
+		let secondLetter 	= '';
+		let thirdLetter 	= '';
+		let fourthLetter 	= '';
 
 		if(socioResult[1]) {
 			extraversionPoints++;
@@ -797,5 +857,85 @@ $(function() {
 		} else {
 			terminalPoints++;
 		}
+
+		if(introversionPoints > extraversionPoints) {
+			firstLetter = 'i';
+		} else {
+			firstLetter = 'e';
+		}
+		if(irrationalPoints > rationalPoints) {
+			secondLetter = 'i';
+		} else {
+			secondLetter = 'r';
+		}
+		if(ethicPoints > logicPoints) {
+			thirdLetter = 'e';
+		} else {
+			thirdLetter = 'l';
+		}
+		if (intuitionPoints > sensoricPoints) {
+			fourthLetter = 'i';
+		} else {
+			fourthLetter = 's';
+		}
+
+		let resultWord = firstLetter + secondLetter + thirdLetter + fourthLetter;
+		
+		$(`.testResult__item--${resultWord}`).show();
+
+		/*
+		switch(resultWord) {
+			case 'iiei':
+				console.log('Есенин');
+				break;
+			case 'iies':
+				console.log('Дюма');
+				break;
+			case 'iili':
+				console.log('Бальзак');
+				break;
+			case 'iils':
+				console.log('Габен');
+				break;
+			case 'irei':
+				console.log('Достоевский');
+				break;
+			case 'ires':
+				console.log('Драйзер');
+				break;
+			case 'irli':
+				console.log('Робеспьер');
+				break;
+			case 'irls':
+				console.log('Горький');
+				break;
+			case 'eiei':
+				console.log('Гексли');
+				break;
+			case 'eies':
+				console.log('Наполен');
+				break;
+			case 'eili':
+				console.log('Дон Кихот');
+				break;
+			case 'eils':
+				console.log('Петр 1');
+				break;
+			case 'erei':
+				console.log('Гамлет');
+				break;
+			case 'eres':
+				console.log('Гюго');
+				break;
+			case 'erli':
+				console.log('Ньютон');
+				break;
+			case 'erls':
+				console.log('Штирлиц');
+				break;
+			default:
+    			console.log('Возможен-ли вообще такой результат?');
+		}
+		*/
 	}
 });
