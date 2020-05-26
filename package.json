@@ -10,6 +10,9 @@
   "author": "GillGate",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.3",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
@@ -29,9 +32,12 @@
     "gulp-uglify": "^3.0.1",
     "imagemin-webp": "^5.0.0",
     "posthtml-include": "^1.2.0",
-    "smart-grid": "^2.1.2"
+    "smart-grid": "^2.1.2",
+    "webpack": "^4.43.0",
+    "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "chart.js": "^2.9.3"
+    "chart.js": "^2.9.3",
+    "jquery": "^3.5.1"
   }
 }

@@ -12,6 +12,7 @@ const imageminWebp = require('imagemin-webp');
 const svgstore = require("gulp-svgstore");
 const cheerio = require('gulp-cheerio');
 const rename = require('gulp-rename');
+const webpack = require('webpack-stream');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const gulpif = require('gulp-if');
@@ -50,6 +51,30 @@ let config = {
         src: '/less/styles.less',
         dest: '/css/'
     }
+};
+
+let webpackConfig = {
+    output: {
+        filename: 'all.js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+        ]
+    },
+    externals: {
+        moment: 'moment'
+    },
+    mode: isDev ? 'development' : 'production'
 };
 
 function html() {
@@ -99,10 +124,9 @@ function img() {
 }
 
 function js(done) {
-    return gulp.src(config.src + config.js.src)
+    return gulp.src(config.src + '/js/index.js')
         // .pipe(gulpif(isDev, sourcemaps.init()))
-        // .pipe(gulpif(isDev, concat('all.js')))
-        // .pipe(uglify())
+        .pipe(webpack(webpackConfig))        
         // .pipe(gulpif(isDev, sourcemaps.write('.')))
         .pipe(gulp.dest(config.build + config.js.dest))
         .pipe(gulpif(isSync, browserSync.stream()));
@@ -138,7 +162,8 @@ function watch() {
         browserSync.init({
             server: {
                 baseDir: config.build
-            }
+            },
+            online: true
         });
     }
 

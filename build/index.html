@@ -2,12 +2,69 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Главная</title>
+	<link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-	<a href="isenk.html">Тест Айзенка</a>
-	<a href="golland.html">Тест Голланда</a>
-	<a href="ddo.html">ДДО</a>
-	<a href="socio.html">Соционика</a>
+	<header class="header">
+		<div class="container header__wrapper">
+			<a class="header__logo">
+				<img src="img/logo.png" alt="Логотип">
+				Профориентация
+			</a>
+			<nav class="header__nav">
+				<div>
+					Список тестов
+					<ul class="header__list">
+						<li class="header__item">
+							<a href="isenk.html">Тест Айзенка</a>
+						</li>
+						<li class="header__item">
+							<a href="golland.html">Тест Голланда</a>
+						</li>
+						<li class="header__item">
+							<a href="ddo.html">Опросник Климова</a>
+						</li>
+						<li class="header__item">
+							<a href="socio.html">Соционика</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<section class="home">
+		<div class="container">
+			<h1 class="home__title">Психологические тесты</h1>
+			<div class="home__list">
+				<a href="isenk.html" class="home__item">
+					<div class="home__image">
+						<img src="img/isenk-bg.jpg" alt="Тест Айзенка">
+					</div>
+					<h2 class="home__testName">Тест Айзенка</h2>
+				</a>
+				<a href="golland.html" class="home__item">
+					<div class="home__image">
+						<img src="img/golland-bg.jpg" alt="Тест Голланда">
+					</div>
+					<h2 class="home__testName">Тест Голланда</h2>
+				</a>
+				<a href="ddo.html" class="home__item">
+					<div class="home__image">
+						<img src="img/ddo-bg.jpg" alt="Опросник Климова">
+					</div>
+					<h2 class="home__testName">Опросник Климова</h2>
+				</a>
+				<a href="socio.html" class="home__item">
+					<div class="home__image">
+						<img src="img/socio-bg.jpg" alt="Соционика">
+					</div>
+					<h2 class="home__testName">Соционика</h2>
+				</a>
+			</div>
+		</div>
+	</section>
+	<script src="js/all.js"></script>
 </body>
 </html>
