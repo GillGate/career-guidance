@@ -4,6 +4,19 @@
 
 .reset();
 
+html {
+	overflow-x: hidden;
+	font-size: 16px;
+
+	.sm-block({
+		font-size: 14px;
+	});
+
+	.xs-block({
+		font-size: 13px;
+	});
+}
+
 body {
 	font-family: "Roboto Slab", "Times New Roman", serif;
 }
@@ -15,13 +28,27 @@ img {
 
 .header {
 	background: @second;
-	color: #fff;
+
+	a {
+		color: #fff;
+		text-decoration: none;
+		transition: color .3s ease;
+
+		&[href]:active {
+			color: #ccc;
+		}
+	}
 
 	&__wrapper {
 		.row-flex();
+
 		align-items: center;
-		padding-top: 10px;
-		padding-bottom: 10px;
+		padding: 10px 0;
+
+		.xs-block({
+			justify-content: center;
+			padding: 20px 0;
+		});
 	}
 
 	&__logo {
@@ -29,7 +56,9 @@ img {
 		align-items: center;
 		color: #fff;
 		font-weight: bold;
+		font-size: 1.125rem;
 		text-decoration: none;
+		margin-right: 20px;
 
 		img {
 			width: 55px;
@@ -39,17 +68,21 @@ img {
 
 	&__nav {
 		margin-left: auto;
-		
-		div {
-			border-bottom: 1px dashed #fff;
-			position: relative;
-		}
-	}
 
-	&__list {
-		display: none;
-		position: absolute;
-	}
+		.xs-block({
+			width: 100%;
+			text-align: center;
+			margin: 20px 0 0;
+		});
+		
+		a {
+			margin-left: 20px;
+
+			.xs-block({
+				margin-left: 0;
+			});
+		}
+	}	
 
 }
 
@@ -59,9 +92,13 @@ img {
 
 .home {
 	margin-top: 70px;
+
+	.md-block({
+		margin-top: 40px;
+	});
 	
 	&__title {
-		font-size: 32px;
+		font-size: 2rem;
 		font-weight: bold;
 		text-align: center;
 	}
@@ -69,6 +106,7 @@ img {
 	&__list {
 		.row-flex();
 		.size(10);
+		.size-md(12);
 		justify-content: center;
 		margin: 20px auto;
 	}
@@ -76,11 +114,18 @@ img {
 	&__item {
 		.col();
 		.size(4);
+		.size-md(4.5);
+		.size-sm(5);
+		.size-xs(9);
+
+		.xs-block({
+			margin: 10px;
+		});
 
 		margin: 16px;
 		text-decoration: none;
 		color: #000;
-		font-size: 24px;
+		font-size: 1.5rem;
 		text-align: center;
 		border: 3px solid @second;
 		border-radius: 18px;
@@ -98,45 +143,92 @@ img {
 			width: 100%;
 			height: 220px;
 			object-fit: cover;
+
+			.from-to(@break_sm, @break_xs, {
+				height: 170px;
+			});
 		}
 		
 	}
 
 	&__testName {
-		padding: 15px 0;
+		padding: 15px 5px;
 		font-weight: bold;
 	}
 }
 
 .reveal {
 	text-align: center;
-	font-size: 18px;
+	font-size: 1.125rem;
 
 	&__wrapper {
 		margin-top: 50px;
+
+		.md-block({
+			margin-top: 30px;
+		});
 	}
 
 	&__description {
 		width: 800px;
 		margin: 0 auto;
+
+		.md-block({
+			width: 600px;
+		});
+
+		.sm-block({
+			width: auto;
+		});
+
+		.xs-block({
+			padding: 0 20px;
+		});
 	}
 
 	&__image {
 		width: 600px;
 		min-height: 340px;
 		margin: 0 auto -77px;
+
+		.md-block({
+			width: 500px;
+			min-height: auto;
+			margin-bottom: 10px;
+		});
+
+		.xs-block({
+			width: auto;
+		});
 	}
 
 	&__title {
 		display: inline-block;
 		padding: 10px 24px;
-		font-size: 40px;
+		font-size: 2.5rem;
 		font-weight: bold;
+
+		.md-block({
+			background: #fff !important;
+		});
 	}
 
 	&__text {
 		margin-top: 30px;
 		padding: 0 110px;
+
+		.md-block({
+			margin-top: 15px;
+			padding: 0;
+		});
+
+		.sm-block({
+			padding: 0 10px;
+		});
+
+		.xs-block({
+			padding: 0;
+		});
 
 		span {
 			font-weight: bold;
@@ -144,10 +236,10 @@ img {
 	}
 
 	&__btn {
-		margin-top: 35px;
+		margin: 35px 0;
 		padding: 12px 24px;
 		font-family: "Roboto Slab","Times New Roman", serif;
-		font-size: 23px;
+		font-size: 1.438rem;
 		background-color: lighten(@red, 5%);
 		color: #000;
 		border: 3px solid #fff;
@@ -201,12 +293,12 @@ img {
 	text-align: center;
 
 	&__caption {
-		font-size: 22px;
+		font-size: 1.375rem;
 	}
 
 	&__order {
 		margin-top: 30px;
-		font-size: 20px;
+		font-size: 1.25rem;
 
 		span {
 			font-weight: bold;
@@ -219,6 +311,10 @@ img {
 		display: none;
 		box-sizing: border-box;
 
+		.md-block({
+			width: auto;
+		});
+
 	
 		&--active {
 			display: block;
@@ -226,9 +322,10 @@ img {
 	}
 
 	&__buttons {
-		display: flex;
+		.row-flex();
+
 		justify-content: center;
-		margin-top: 30px;
+		margin: 30px 0;
 	}
 
 	&__button {
@@ -250,7 +347,87 @@ img {
 		figcaption {
 			margin: auto;
 			padding: 20px 20px;
-			font-size: 25px;
+			font-size: 1.563rem;
+		}
+	}
+}
+
+.isenk {
+
+	&__item {
+		width: 820px;
+		padding: 0 40px;
+		border: @global 4px solid;
+		border-radius: 25px;
+
+		.md-block({
+			width: 650px;
+		});
+
+		.sm-block({
+			width: 500px;
+			padding: 0 15px;
+		});
+
+		.xs-block({
+			width: auto;
+			margin: 0 10px;
+		});
+	}
+
+	&__title {
+		display: flex;
+		justify-content: center;
+	    align-items: center;
+	    min-height: 111px;
+		margin-top: 30px;
+		font-size: 1.75rem;
+
+		.md-block({
+			min-height: 148px;
+		});
+
+		.xs-block({
+			min-height: 168px;
+		});
+
+	}
+
+	&__buttons {
+		margin: 55px 0 50px;
+		font-size: 1.563rem;
+	}
+
+	&__button {
+		padding: 10px 0;
+		display: inline-block;
+		width: 98px;
+		border-radius: 5px;
+		transition: background .2s ease;
+
+		.xs-block({
+			padding: 15px 0; 
+		});
+
+		&--yes {
+			background-color: @green;
+			margin-right: 25px;
+
+			.xs-block({
+				margin-right: 15px;
+			});
+
+			&:hover {
+				background-color: darken(@green, 5%);
+			}
+		}
+
+		&--no {
+			background-color: @red;
+
+			&:hover {
+				background-color: darken(@red, 12%);
+			}
 		}
 	}
 }
@@ -270,7 +447,28 @@ img {
 
 		&:first-child {
 			margin-right: 50px;
+
+			.md-block({
+				margin-right: 35px;
+			});
+
+			.xs-block({
+				margin-right: 0;
+			});
 		}
+
+		.md-block({
+			width: 280px;
+		});
+
+		.sm-block({
+			width: 240px;
+		});
+
+		.xs-block({
+			width: 65%;
+			margin-bottom: 20px;
+		});
 	}
 
 	&__image {
@@ -285,6 +483,10 @@ img {
 
 .socio {
 	padding-top: 18px;
+
+	.xs-block({
+		padding-top: 2px;
+	});
 
 	&__item {
 		position: relative;
@@ -305,11 +507,22 @@ img {
 	&__buttons {
 		width: 700px;
 		margin: 30px auto; 
-		padding: 30px 30px;
+		padding: 30px;
 		background: lighten(@second, 37%);
 		border-radius: 25px;
 		box-sizing: border-box;
 		box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.3), 0 4px 25px 0px rgba(0, 0, 0, 0.08), 0 8px 10px -5px rgba(0, 0, 0, 0.14);
+
+		.md-block({
+			width: 680px;
+		});
+
+		.sm-block({
+			width: auto;
+			margin: 30px 15px;
+			padding: 10px 20px;
+		});
+
 	}
 
 	&__button {
@@ -319,11 +532,16 @@ img {
 		min-height: 78px;
 		margin: 20px 0;
 		padding: 15px 55px;
-		font-size: 26px;
+		font-size: 1.625rem;
 		background: #fff;
 		border-radius: 20px;
 		transition: background .4s ease;
 		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+		.sm-block({
+			padding: 5px 20px;
+			min-height: 114px;
+		});
 
 		&:hover {
 			background: #eee;
@@ -331,59 +549,17 @@ img {
 	}
 }
 
-.isenk {
-
-	&__item {
-		width: 820px;
-		padding: 0 40px;
-		border: @global 4px solid;
-		border-radius: 25px;
-	}
-
-	&__title {
-		display: flex;
-		justify-content: center;
-	    align-items: center;
-	    min-height: 111px;
-		margin-top: 30px;
-		font-size: 28px;
-	}
-
-	&__buttons {
-		margin: 55px 0 50px;
-		font-size: 25px;
-	}
-
-	&__button {
-		padding: 10px 25px; 
-		border-radius: 5px;
-		transition: background .2s ease;
-
-		&--yes {
-			background-color: @green;
-			margin-right: 25px;
-
-			&:hover {
-				background-color: darken(@green, 5%);
-			}
-		}
-
-		&--no {
-			background-color: @red;
-
-			&:hover {
-				background-color: darken(@red, 12%);
-			}
-		}
-	}
-}
-
 .testResult {
+	margin-bottom: 40px;
 	
 	&__wrapper {
 		width: 900px;
 		margin: 70px auto;
-	    font-size: 18px;
+	    font-size: 1.125rem;
+
+	    .md-block({
+			width: auto;
+	    });
 	}
 
 	&__item {
@@ -391,25 +567,39 @@ img {
 	}
 
 	&__caption {
-		font-size: 22px;
+		font-size: 1.375rem;
 	}
 
 	&__image {
 		width: 270px;
 		min-height: 340px;
 		margin: 30px auto;
+
+		.sm-block({
+			width: 220px;
+			min-height: auto;
+		});
 	}
 
 	&__title {
 		margin-top: 30px;
 		font-weight: bold;
-		font-size: 26px;
+		font-size: 1.625rem;
+
+		.sm-block({
+			padding: 0 20px;
+		});
 	}
 
 	&__text {
 		padding: 0 100px;
 		margin-top: 30px;
 		text-align: left;
+
+		.xs-block({
+			margin-top: 10px;
+			padding: 0 30px;
+		});
 
 		p {
 			padding-top: 10px;
@@ -433,6 +623,18 @@ img {
 	    width: 1100px;
 	    margin: 0 auto;
 	    position: relative;
+
+	    span {
+	    	padding: 0 15px;
+	    }
+
+	    .md-block({
+			width: 100%;
+	    });
+
+	    .md-block({
+			// width: 20px;
+	    });
 	}
 }
 
@@ -440,17 +642,23 @@ img {
 
 	&__item {
 		width: 600px;
-		margin: 0 auto;
+		margin: 0 auto 40px;
 		display: none;
+
+		.sm-block({
+			width: 480px;
+		});
+
+		.xs-block({
+			width: auto;
+			padding: 0 20px;
+		});
 	}
 
 	&__title {
 		font-weight: bold;
-		font-size: 34px;
+		font-size: 2.125rem;
+		margin-top: 10px;
 		margin-bottom: 30px;
-	}
-
-	&__text {
-		// margin-top: 30px;
 	}
 }

@@ -15,6 +15,23 @@ export function getValues(selector) {
 	return arrayValues;
 }
 
+export function chartView(chartObj, $chartSelector) {
+	let clWidth = document.documentElement.clientWidth;
+
+	if(clWidth < 576) {
+		chartObj.options.title.fontSize = 20;
+		chartObj.options.scale.pointLabels.fontSize = 13;
+	}
+
+	if(clWidth < 450) {
+		$($chartSelector).hide();
+		$('.testResult__chart span').show().text('Разверните телефон горизонтально для отображения резултатов');
+	} else {
+		$($chartSelector).show();
+		$('.testResult__chart span').hide();
+	}
+}
+
 $(function() {
 	let $test = $('.test');
 

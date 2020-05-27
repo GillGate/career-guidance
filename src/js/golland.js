@@ -1,6 +1,6 @@
 import $ from "jquery";
 import Chart from 'chart.js';
-import {getValues} from './index.js';
+import {getValues, chartView} from './index.js';
 
 export default function getGollandResult() {
 	let gollandResult = getValues('.golddo__button input:even');
@@ -285,5 +285,10 @@ export default function getGollandResult() {
 		        }
 		    },
 	    }	
+	});
+	chartView(chartGolland, '#gollandChart');
+
+	window.addEventListener('resize', function() {
+		chartView(chartGolland, '#gollandChart');
 	});
 }

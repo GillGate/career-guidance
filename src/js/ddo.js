@@ -1,6 +1,6 @@
 import $ from "jquery";
 import Chart from 'chart.js';
-import {getValues} from './index.js';
+import {getValues, chartView} from './index.js';
 
 export default function getDDOResult() {
 	let ddoResult = getValues('ddo__button input:even');
@@ -168,5 +168,11 @@ export default function getDDOResult() {
 		        }
 		    },
 	    }	
+	});
+
+	chartView(chartDDO, '#ddoChart');
+
+	window.addEventListener('resize', function() {
+		chartView(chartDDO, '#ddoChart');
 	});
 }
