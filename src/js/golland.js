@@ -5,12 +5,12 @@ import {getValues, chartView} from './index.js';
 export default function getGollandResult() {
 	let gollandResult = getValues('.golddo__button input:even');
 
-	let realPoints 				= 0;
-	let intellectualPoints 		= 0;
-	let socialPoints 			= 0;
-	let conventionalPoints 		= 0;
-	let entrepreneurialPoints	= 0;
-	let artisticPoints 			= 0;
+	let realPoints 				= 0,
+		intellectualPoints 		= 0,
+		socialPoints 			= 0,
+		conventionalPoints 		= 0,
+		entrepreneurialPoints	= 0,
+		artisticPoints 			= 0;
 
 	if(gollandResult[1]) {
 		realPoints++;

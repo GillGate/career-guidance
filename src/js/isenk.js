@@ -4,13 +4,12 @@ import {getValues} from './index.js';
 export default function getIsenkResult() {
 	let isenkValues = getValues('.isenk__button--yes input');
 
-	let extraversionPoints 	= 0;
-	let neuroticismPoints 	= 0;
-	let liePoints 			= 0;
+	let extraversionPoints 	= 0,
+		neuroticismPoints 	= 0,
+		liePoints 			= 0;
 
-	let isExtrovert = false;
-	let isStable = false;
-	// let isFair = false;
+	let isExtrovert = false,
+		isStable = false;
 
 	if(isenkValues[1]) {
 		extraversionPoints++;
@@ -27,9 +26,6 @@ export default function getIsenkResult() {
 	if(!isenkValues[5]) {
 		extraversionPoints++;
 	}
-	if(isenkValues[6]) {
-		liePoints++;
-	}
 	if(isenkValues[7]) {
 		neuroticismPoints++;
 	}
@@ -44,9 +40,6 @@ export default function getIsenkResult() {
 	}
 	if(isenkValues[11]) {
 		neuroticismPoints++;
-	}
-	if(!isenkValues[12]) {
-		liePoints++;
 	}
 	if(isenkValues[13]) {
 		extraversionPoints++;
@@ -63,9 +56,6 @@ export default function getIsenkResult() {
 	if(isenkValues[17]) {
 		extraversionPoints++;
 	}
-	if(!isenkValues[18]) {
-		liePoints++;
-	}
 	if(isenkValues[19]) {
 		neuroticismPoints++;
 	}
@@ -80,9 +70,6 @@ export default function getIsenkResult() {
 	}
 	if(isenkValues[23]) {
 		neuroticismPoints++;
-	}
-	if(isenkValues[24]) {
-		liePoints++;
 	}
 	if(isenkValues[25]) {
 		extraversionPoints++;
@@ -99,9 +86,6 @@ export default function getIsenkResult() {
 	if(!isenkValues[29]) {
 		extraversionPoints++;
 	}
-	if(!isenkValues[30]) {
-		liePoints++;
-	}
 	if(isenkValues[31]) {
 		neuroticismPoints++;
 	}
@@ -116,9 +100,6 @@ export default function getIsenkResult() {
 	}
 	if(isenkValues[35]) {
 		neuroticismPoints++;
-	}
-	if(isenkValues[36]) {
-		liePoints++;
 	}
 	if(!isenkValues[37]) {
 		extraversionPoints++;
@@ -135,9 +116,6 @@ export default function getIsenkResult() {
 	if(!isenkValues[41]) {
 		extraversionPoints++;
 	}
-	if(!isenkValues[42]) {
-		liePoints++;
-	}
 	if(isenkValues[43]) {
 		neuroticismPoints++;
 	}
@@ -153,9 +131,6 @@ export default function getIsenkResult() {
 	if(isenkValues[47]) {
 		neuroticismPoints++;
 	}
-	if(!isenkValues[48]) {
-		liePoints++;
-	}
 	if(isenkValues[49]) {
 		extraversionPoints++;
 	}
@@ -170,9 +145,6 @@ export default function getIsenkResult() {
 	}
 	if(isenkValues[53]) {
 		extraversionPoints++;
-	}
-	if(!isenkValues[54]) {
-		liePoints++;
 	}
 	if(isenkValues[55]) {
 		neuroticismPoints++;
@@ -190,11 +162,6 @@ export default function getIsenkResult() {
 	if(neuroticismPoints < 12) {
 		isStable = true;
 	}
-	/*
-	if(liePoints < 4) {
-		isFair = true;
-	}
-	*/
 
 	if((isExtrovert) && (isStable)) {
 		$('.isenkResult__item--sanguine').show();

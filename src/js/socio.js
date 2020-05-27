@@ -4,21 +4,21 @@ import {getValues} from './index.js';
 export default function getSocioResult() {
 	let socioResult = getValues('.socio__button input:even');
 
-	let extraversionPoints 	= 0;
-	let introversionPoints 	= 0;
-	let rationalPoints 		= 0;
-	let irrationalPoints 	= 0;
-	let sensoricPoints 		= 0;
-	let intuitionPoints 	= 0;
-	let logicPoints 		= 0;
-	let ethicPoints 		= 0;
-	let initiativePoints 	= 0;
-	let terminalPoints		= 0;
+	let extraversionPoints 	= 0,
+		introversionPoints 	= 0,
+		rationalPoints 		= 0,
+		irrationalPoints 	= 0,
+		sensoricPoints 		= 0,
+		intuitionPoints 	= 0,
+		logicPoints 		= 0,
+		ethicPoints 		= 0,
+		initiativePoints 	= 0,
+		terminalPoints		= 0;
 
-	let firstLetter 	= '';
-	let secondLetter 	= '';
-	let thirdLetter 	= '';
-	let fourthLetter 	= '';
+	let firstLetter 	= '',
+		secondLetter 	= '',
+		thirdLetter 	= '',
+		fourthLetter 	= '';
 
 	if(socioResult[1]) {
 		extraversionPoints++;

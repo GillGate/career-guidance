@@ -33,12 +33,21 @@ export function chartView(chartObj, $chartSelector) {
 }
 
 $(function() {
-	let $test = $('.test');
+	let $test 	= $('.test'),
+		$header = $('.header');
 
 	$('.reveal__btn').on('click', function() {
+		let clWidth = document.documentElement.clientWidth;
+
 		$(this).parent().fadeOut(300, function() {
 			$test.fadeIn(300);
 		});
+
+		if($test.hasClass('golland') || $test.hasClass('ddo')) {
+			if(clWidth < 576) {
+				$header.fadeOut(300);				
+			}
+		}
 	});
 
 	$('.test__item:first').addClass('test__item--active');
@@ -71,9 +80,11 @@ $(function() {
 		}
 		if (test.hasClass('golland')) {
 			getGollandResult();
+			$header.fadeIn(300);
 		}
 		if (test.hasClass('ddo')) {
 			getDDOResult();
+			$header.fadeIn(300);
 		}
 		if (test.hasClass('socio')) {
 			getSocioResult();

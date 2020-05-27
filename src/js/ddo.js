@@ -5,11 +5,11 @@ import {getValues, chartView} from './index.js';
 export default function getDDOResult() {
 	let ddoResult = getValues('ddo__button input:even');
 
-	let hNature = 0;
-	let hTech 	= 0;
-	let hHuman 	= 0;
-	let hSign 	= 0;
-	let hArt 	= 0;
+	let hNature = 0,
+		hTech 	= 0,
+		hHuman 	= 0,
+		hSign 	= 0,
+		hArt 	= 0;
 
 	if(ddoResult[1]){
 		hNature++;
