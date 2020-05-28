@@ -39,8 +39,6 @@
   "dependencies": {
     "chart.js": "^2.9.3",
     "jquery": "^3.5.1",
-    "jquery-lazy": "^1.7.10",
-    "lodash": "^4.17.15",
     "vanilla-lazyload": "^16.1.0"
   }
 }

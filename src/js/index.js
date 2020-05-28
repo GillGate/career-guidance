@@ -60,7 +60,7 @@ $(function() {
 		window.setTimeout(function() {
 			$testItem.removeClass('test__item--active');
 			$testItem.next().addClass('test__item--active');
-		}, 300);
+		}, 100);
 		
 
 		if($testItem.hasClass('test__item--last')) {
@@ -76,13 +76,8 @@ $(function() {
 		e.preventDefault();
 	});
 
-	// let callback_loaded = ;
-
-	let lazy = new LazyLoad({
-		elements_selector: ".golddo__image img",
-		callback_loaded: function(element) {
-		    console.log(element);
-		}
+	let golddoLazy = new LazyLoad({
+		elements_selector: ".golddo__image img, .testResult__image img"
 	});
 	
 
