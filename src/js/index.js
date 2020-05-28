@@ -1,4 +1,5 @@
 import $ from "jquery";
+import LazyLoad from "vanilla-lazyload";
 import getIsenkResult from './isenk.js';
 import getGollandResult from './golland.js';
 import getDDOResult from './ddo.js';
@@ -56,8 +57,11 @@ $(function() {
 	$($test).on('click', '.test__button', function() {
 		let $testItem = $(this).closest('.test__item');
 
-		$testItem.removeClass('test__item--active');
-		$testItem.next().addClass('test__item--active');
+		window.setTimeout(function() {
+			$testItem.removeClass('test__item--active');
+			$testItem.next().addClass('test__item--active');
+		}, 300);
+		
 
 		if($testItem.hasClass('test__item--last')) {
 			$test.fadeOut(500);
@@ -71,6 +75,16 @@ $(function() {
 	$('.home').on('dragstart', '.home__image img', function(e) {
 		e.preventDefault();
 	});
+
+	// let callback_loaded = ;
+
+	let lazy = new LazyLoad({
+		elements_selector: ".golddo__image img",
+		callback_loaded: function(element) {
+		    console.log(element);
+		}
+	});
+	
 
 	function getResult(test) {
 		$('.reveal__result').fadeIn(500);
