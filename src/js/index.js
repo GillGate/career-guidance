@@ -4,6 +4,8 @@ import getIsenkResult from './isenk.js';
 import getGollandResult from './golland.js';
 import getDDOResult from './ddo.js';
 import getSocioResult from './socio.js';
+import getIndexCharts from './charts.js';
+import Calendar2 from './calendar.js';
 
 export function getValues(selector) {
 	let values = $(selector);
@@ -50,6 +52,8 @@ $(function() {
 			}
 		}
 	});
+
+	getIndexCharts();
 
 	$('.test__item:first').addClass('test__item--active');
 	$('.test__item:last').addClass('test__item--last');

@@ -19,10 +19,6 @@ html {
 	});
 }
 
-body {
-	
-}
-
 img {
 	max-width: 100%;
 	height: auto;
@@ -92,6 +88,77 @@ img {
 	.wrapper();
 }
 
+.main {
+	.row-flex();
+	.col();
+	.size(12);
+
+	&__chartWrapper {
+		.col();
+		// .size(2.5);
+		width: 376px;
+		.to(1075px, {
+			display: none;
+		});
+		margin-top: 30px;
+		padding-left: 20px;
+	}
+
+	&__chart {
+		width: 100%;
+	    margin: 0 auto 15px;
+	    position: relative;
+	}
+
+	&__content {
+		.col();
+		.size(7.5);
+		.to(1075px, {
+			.size(10);
+			margin-left: auto;
+			margin-right: auto;
+		});
+	}
+
+	&__calendar {
+		.col();
+		.size(1.5);
+		.to(1515px, {
+			display: none;
+		});
+		margin-top: 30px;
+	}
+
+	#calendar2 {
+		width: 200px;
+		font: monospace;
+		line-height: 1.2em;
+		font-size: 15px;
+		text-align: center;
+		border: 1px solid @second;
+	}
+	#calendar2 thead tr:last-child {
+		font-size: small;
+		color: rgb(85, 85, 85);
+	}
+	#calendar2 thead tr:nth-child(1) td:nth-child(2) {
+		color: rgb(50, 50, 50);
+	}
+	#calendar2 thead tr:nth-child(1) td:nth-child(1):hover, #calendar2 thead tr:nth-child(1) td:nth-child(3):hover {
+	  	cursor: pointer;
+	}
+	#calendar2 tbody td {
+	  	color: rgb(44, 86, 122);
+	}
+	#calendar2 tbody td:nth-child(n+6), #calendar2 .holiday {
+	 	color: rgb(231, 140, 92);
+	}
+	#calendar2 tbody td.today {
+		background: rgb(220, 0, 0);
+		color: #fff;
+	}
+}
+
 .home {
 	margin-top: 70px;
 
@@ -107,18 +174,23 @@ img {
 
 	&__list {
 		.row-flex();
-		.size(10);
-		.size-md(12);
+		.col();
+		.size(12);
 		justify-content: center;
 		margin: 20px auto;
 	}
 
 	&__item {
 		.col();
-		.size(4);
+		width: 375px;
+		.to(1397px, {
+			width: 280px;
+		});
+		.to(1075px, {
+			.size(4);
+		});
 		.size-md(4.5);
-		.size-sm(5);
-		.size-xs(9);
+		.size-sm(9);
 
 		.xs-block({
 			margin: 10px;
@@ -695,5 +767,14 @@ img {
 		font-size: 2.125rem;
 		margin-top: 10px;
 		margin-bottom: 30px;
+	}
+}
+
+.footer {
+	margin-top: 50px;
+
+	&__text {
+		text-align: center;
+		font-size: 12px;
 	}
 }
