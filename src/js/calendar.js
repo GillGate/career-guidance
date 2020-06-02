@@ -29,12 +29,3 @@ if (document.querySelectorAll('#'+id+' tbody tr').length < 6) {  // чтобы �
     document.querySelector('#'+id+' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
 }
 }
-Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth());
-// переключатель минус месяц
-document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
-  Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month)-1);
-}
-// переключатель плюс месяц
-document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
-  Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month)+1);
-}

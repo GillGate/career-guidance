@@ -24,6 +24,9 @@ export function chartView(chartObj, $chartSelector) {
 	if(clWidth < 576) {
 		chartObj.options.title.fontSize = 20;
 		chartObj.options.scale.pointLabels.fontSize = 13;
+	} else {
+		chartObj.options.title.fontSize = 28;
+		chartObj.options.scale.pointLabels.fontSize = 16;
 	}
 
 	if(clWidth < 450) {
@@ -45,6 +48,7 @@ $(function() {
 		$(this).parent().fadeOut(300, function() {
 			$test.fadeIn(300);
 		});
+		console.log(1);
 
 		if($test.hasClass('golland') || $test.hasClass('ddo')) {
 			if(clWidth < 576) {
@@ -52,8 +56,6 @@ $(function() {
 			}
 		}
 	});
-
-	getIndexCharts();
 
 	$('.test__item:first').addClass('test__item--active');
 	$('.test__item:last').addClass('test__item--last');
@@ -84,7 +86,6 @@ $(function() {
 		elements_selector: ".golddo__image img, .testResult__image img"
 	});
 	
-
 	function getResult(test) {
 		$('.reveal__result').fadeIn(500);
 
@@ -103,4 +104,20 @@ $(function() {
 			getSocioResult();
 		}
 	}
+
+	let isHomePage = $('.home').hasClass('main__content');
+
+	if(isHomePage) {
+		getIndexCharts();
+		Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth());
+		document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
+	  		Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month)-1);
+		}
+
+		document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
+	 		Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month)+1);
+		}
+	}
+
+	
 });
