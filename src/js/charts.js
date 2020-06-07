@@ -7,10 +7,10 @@ export default function getIndexCharts() {
 	let ctxDDOStat = document.querySelector('#ddoStatisitc').getContext('2d');
 	let ctxSocioStat = document.querySelector('#socioStatisitc').getContext('2d');
 
-	let isenkArray 		= [2, 3, 2, 2, 1, 3, 0];
-	let gollandArray 	= [1, 2, 1, 3, 1, 1, 0];
-	let ddoArray 		= [0, 1, 2, 0, 2, 2, 0];
-	let socioArray 		= [4, 2, 1, 1, 0, 1, 0];
+	let isenkArray 		= [2, 2, 2, 0, 0, 0, 1];
+	let gollandArray 	= [1, 1, 2, 2, 0, 0, 2];
+	let ddoArray 		= [2, 2, 1, 1, 0, 0, 2];
+	let socioArray 		= [2, 1, 2, 0, 0, 0, 0];
 
 	let currentDay 	= new Date();
 	let dateArray 	= [currentDay.getDate()];
@@ -21,6 +21,24 @@ export default function getIndexCharts() {
 	}
 
 	dateArray = dateArray.reverse();
+
+	let chartOptions = {
+		scales: {
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    suggestedMax: 10,
+                    stepSize: 2
+                }
+            }]
+        },
+    	tooltips: {
+    		enabled: false
+    	},
+    	legend: {
+    		display: false
+    	}
+	}
 
 	
 	let isenkStat = new Chart(ctxIsenkStat, {
@@ -33,30 +51,7 @@ export default function getIndexCharts() {
 	            data: isenkArray
 	        }]
 	    },
-	    options: {
-	    	title: {
-	    		display: true,
-        		text: 'Статистика посещения Теста Айзенка',
-        		fontFamily: "'Roboto Slab', 'Times New Roman', 'serif'",
-        		color: '#000',
-        		fontSize: 16
-	    	},
-	    	scales: {
-	            yAxes: [{
-	                ticks: {
-	                    suggestedMin: 0,
-	                    suggestedMax: 10,
-	                    stepSize: 2
-	                }
-	            }]
-	        },
-	    	tooltips: {
-	    		enabled: false
-	    	},
-	    	legend: {
-	    		display: false
-	    	}
-		}
+	    options: chartOptions
 	});
 
 	let gollandStat = new Chart(ctxGollandStat, {
@@ -69,30 +64,7 @@ export default function getIndexCharts() {
 	            data: gollandArray
 	        }]
 	    },
-	    options: {
-	    	title: {
-	    		display: true,
-        		text: 'Статистика посещения Теста Голланда',
-        		fontFamily: "'Roboto Slab', 'Times New Roman', 'serif'",
-        		color: '#000',
-        		fontSize: 16
-	    	},
-	    	scales: {
-	            yAxes: [{
-	                ticks: {
-	                    suggestedMin: 0,
-	                    suggestedMax: 10,
-	                    stepSize: 2
-	                }
-	            }]
-	        },
-	    	tooltips: {
-	    		enabled: false
-	    	},
-	    	legend: {
-	    		display: false
-	    	}
-		}
+	    options: chartOptions
 	});
 
 	let ddoStat = new Chart(ctxDDOStat, {
@@ -105,30 +77,7 @@ export default function getIndexCharts() {
 	            data: ddoArray
 	        }]
 	    },
-	    options: {
-	    	title: {
-	    		display: true,
-        		text: 'Статистика посещения Опросника Климова',
-        		fontFamily: "'Roboto Slab', 'Times New Roman', 'serif'",
-        		color: '#000',
-        		fontSize: 16
-	    	},
-	    	scales: {
-	            yAxes: [{
-	                ticks: {
-	                    suggestedMin: 0,
-	                    suggestedMax: 10,
-	                    stepSize: 2
-	                }
-	            }]
-	        },
-	    	tooltips: {
-	    		enabled: false
-	    	},
-	    	legend: {
-	    		display: false
-	    	}
-		}
+	    options: chartOptions
 	});
 
 	let socioStat = new Chart(ctxSocioStat, {
@@ -141,29 +90,6 @@ export default function getIndexCharts() {
 	            data: socioArray
 	        }]
 	    },
-	    options: {
-	    	title: {
-	    		display: true,
-        		text: 'Статистика посещения Теста Соционика',
-        		fontFamily: "'Roboto Slab', 'Times New Roman', 'serif'",
-        		color: '#000',
-        		fontSize: 16
-	    	},
-	    	scales: {
-	            yAxes: [{
-	                ticks: {
-	                    suggestedMin: 0,
-	                    suggestedMax: 10,
-	                    stepSize: 2
-	                }
-	            }]
-	        },
-	    	tooltips: {
-	    		enabled: false
-	    	},
-	    	legend: {
-	    		display: false
-	    	}
-		}
+	    options: chartOptions
 	});
 }

@@ -13,66 +13,244 @@
 	<header class="header">
 		<div class="container header__wrapper">
 			<a class="header__logo">
-				<img src="img/logo.png" alt="Логотип">
-				Профориентация
+				<img src="img/logo.png" alt="Логотип сайта Профориентация">
 			</a>
-			<nav class="header__nav">
-				<a href="https://www.fssblnr.su/">Фонд социального страхования</a>
-			</nav>
+			<p class="header__caption">
+				<span>Модуль тестирования</span> <br>
+				по профориентации для школьников от Фонда социального страхования
+			</p>
+			<a href="https://www.fssblnr.su" class="header__logo header__logo--fss" target="_blank">
+				<img src="img/fsslnr.png" alt="Логотип фонда социального страхования">
+			</a>
 		</div>
 	</header>
 	<main class="main">
-		<div class="main__chartWrapper">
-			<div class="chart-container main__chart">
-				<canvas id="isenkStatisitc"></canvas>
-			</div>
-			<div class="chart-container main__chart">
-				<canvas id="gollandStatisitc"></canvas>
-			</div>
-			<div class="chart-container main__chart">
-				<canvas id="ddoStatisitc"></canvas>
-			</div>
-			<div class="chart-container main__chart">
-				<canvas id="socioStatisitc"></canvas>
+		<div class="container">
+			<div class="main__wrapper">
+				<aside class=" main__aside aside">
+					<div class="aside__calendar">
+						<table id="calendar2">
+						  <thead>
+						    <tr><td>‹</td><td colspan="5"></td><td>›
+						    </td></tr><tr><td>Пн</td><td>Вт</td><td>Ср</td><td>Чт</td><td>Пт</td><td>Сб</td><td>Вс
+						  <tbody>
+						</tbody></td></tr></thead></table>
+					</div>
+					<div class="aside__data">
+						<h2 class="aside__title">
+							Статистика
+						</h2>
+						<div class="statistic">
+							<div class="statistic__item">
+								<p class="statistic__text">
+									Прохождение теста&nbsp;<span class="statistic__open"> Айзенка</span>: <span>7</span>
+								</p>
+								<div class="statistic__data">
+									<div class="statistic__leftside">
+										<h3 class="statistic__title">Статистика посещения теста:</h3>
+										<div class="chart-container statistic__chart">
+											<canvas id="isenkStatisitc"></canvas>
+										</div>
+									</div>
+									<div class="statistic__rightside statistic__rightside--isenk">
+										<h3 class="statistic__title">Общие результаты:</h3>
+										<div class="statistic__dataList">
+											<p class="statistic__dataItem">
+												Холерик: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Сангвинник: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Флегматик: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Меланхолик: <span>0</span>
+											</p>
+										</div>
+										<div class="statistic__close"></div>
+									</div>
+								</div>
+							</div>
+							<div class="statistic__item">
+								<p class="statistic__text">
+									Прохождение теста&nbsp;<span class="statistic__open"> Голланда</span>: <span>7</span>
+								</p>
+								<div class="statistic__data">
+									<div class="statistic__leftside">
+										<h3 class="statistic__title">Статистика посещения теста:</h3>
+										<div class="chart-container statistic__chart">
+											<canvas id="gollandStatisitc"></canvas>
+										</div>
+									</div>
+									<div class="statistic__rightside statistic__rightside--golland">
+										<h3 class="statistic__title">Общие результаты:</h3>
+										<div class="statistic__dataList">
+											<p class="statistic__dataItem">
+												Реалистический тип: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Интеллектуальный тип: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Социальный тип: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Конвенциональный тип: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Предприимчивый тип: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Артистический тип: <span>0</span>
+											</p>
+										</div>
+										<div class="statistic__close"></div>
+									</div>
+								</div>
+							</div>
+							<div class="statistic__item">
+								<p class="statistic__text">
+									Прохождение теста&nbsp;<span class="statistic__open"> Климова</span>: <span>8</span>
+								</p>
+								<div class="statistic__data">
+									<div class="statistic__leftside">
+										<h3 class="statistic__title">Статистика посещения теста:</h3>
+										<div class="chart-container statistic__chart">
+											<canvas id="ddoStatisitc"></canvas>
+										</div>
+									</div>
+									<div class="statistic__rightside statistic__rightside--ddo">
+										<h3 class="statistic__title">Общие результаты:</h3>
+										<div class="statistic__dataList">
+											<p class="statistic__dataItem">
+												Человек-природа: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Человек-техника: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Человек-человек: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Человек-худ. образ: <span>0</span>
+											</p>
+											<p class="statistic__dataItem">
+												Человек-знак. система: <span>0</span>
+											</p>
+										</div>
+										<div class="statistic__close"></div>
+									</div>
+								</div>
+							</div>
+							<div class="statistic__item">
+								<p class="statistic__text">
+									Прохождение теста&nbsp;<span class="statistic__open"> Соционика</span>: <span>5</span>
+								</p>
+								<div class="statistic__data">
+									<div class="statistic__leftside">
+										<h3 class="statistic__title">Статистика посещения теста:</h3>
+										<div class="chart-container statistic__chart">
+											<canvas id="socioStatisitc"></canvas>
+										</div>
+									</div>
+									<div class="statistic__rightside statistic__rightside--socio">
+										<h3 class="statistic__title">Общие результаты:</h3>
+										<div class="statistic__dataList">
+											<div class="statistic__dataBlock">
+												<p class="statistic__dataItem">
+													Лирик: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Посредник: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Критик: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Мастер: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Гуманист: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Хранитель: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Аналитик: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Предприниматель: <span>0</span>
+												</p>
+											</div>
+											<div class="statistic__dataBlock">
+												<p class="statistic__dataItem">
+													Инициатор: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Лидер: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Искатель: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Организатор: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Артист: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Энтузиаст: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Систематик: <span>0</span>
+												</p>
+												<p class="statistic__dataItem">
+													Администратор: <span>0</span>
+												</p>
+											</div>
+										</div>
+										<div class="statistic__close"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p class="aside__text">
+							Посещаемость сайта: <span>64</span>
+						</p>
+					</div>
+				</aside>
+				<section class="main__content home">
+					<h1 class="home__title">Психологические тесты</h1>
+					<div class="home__list">
+						<a href="isenk.html" class="home__item">
+							<div class="home__image">
+								<img src="img/isenk-bg.jpg" alt="Тест Айзенка">
+							</div>
+							<h2 class="home__testName">Тест Айзенка</h2>
+						</a>
+						<a href="golland.html" class="home__item">
+							<div class="home__image">
+								<img src="img/golland-bg.jpg" alt="Тест Голланда">
+							</div>
+							<h2 class="home__testName">Тест Голланда</h2>
+						</a>
+						<a href="ddo.html" class="home__item">
+							<div class="home__image">
+								<img src="img/ddo-bg.jpg" alt="Опросник Климова">
+							</div>
+							<h2 class="home__testName">Опросник Климова</h2>
+						</a>
+						<a href="socio.html" class="home__item">
+							<div class="home__image">
+								<img src="img/socio-bg.jpg" alt="Соционика">
+							</div>
+							<h2 class="home__testName">Соционика</h2>
+						</a>
+					</div>
+				</section>
 			</div>
 		</div>
-		<section class="main__content home">
-			<h1 class="home__title">Психологические тесты</h1>
-			<div class="home__list">
-				<a href="isenk.html" class="home__item">
-					<div class="home__image">
-						<img src="img/isenk-bg.jpg" alt="Тест Айзенка">
-					</div>
-					<h2 class="home__testName">Тест Айзенка</h2>
-				</a>
-				<a href="golland.html" class="home__item">
-					<div class="home__image">
-						<img src="img/golland-bg.jpg" alt="Тест Голланда">
-					</div>
-					<h2 class="home__testName">Тест Голланда</h2>
-				</a>
-				<a href="ddo.html" class="home__item">
-					<div class="home__image">
-						<img src="img/ddo-bg.jpg" alt="Опросник Климова">
-					</div>
-					<h2 class="home__testName">Опросник Климова</h2>
-				</a>
-				<a href="socio.html" class="home__item">
-					<div class="home__image">
-						<img src="img/socio-bg.jpg" alt="Соционика">
-					</div>
-					<h2 class="home__testName">Соционика</h2>
-				</a>
-			</div>
-		</section>
-		<aside class="main__calendar">
-			<table id="calendar2">
-			  <thead>
-			    <tr><td>‹</td><td colspan="5"></td><td>›
-			    </td></tr><tr><td>Пн</td><td>Вт</td><td>Ср</td><td>Чт</td><td>Пт</td><td>Сб</td><td>Вс
-			  <tbody>
-			</tbody></td></tr></thead></table>
-		</aside>
 	</main>
 	<footer class="footer">
 		<p class="footer__text">

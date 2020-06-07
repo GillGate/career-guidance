@@ -48,13 +48,26 @@ $(function() {
 		$(this).parent().fadeOut(300, function() {
 			$test.fadeIn(300);
 		});
-		console.log(1);
 
 		if($test.hasClass('golland') || $test.hasClass('ddo')) {
 			if(clWidth < 576) {
 				$header.fadeOut(300);				
 			}
 		}
+	});
+
+	$('.statistic').on('click', '.statistic__open', function() {
+		let $statBlock = $(this).closest('.statistic__item').find('.statistic__data');
+
+		$('.statistic__data').css('display', 'none');
+		$statBlock.css('display', 'flex');
+		$statBlock.fadeIn(450);
+	});
+
+	$('.statistic').on('click', '.statistic__close', function() {
+		let $statBlock = $(this).closest('.statistic__item').find('.statistic__data');
+
+		$statBlock.fadeOut(450);
 	});
 
 	$('.test__item:first').addClass('test__item--active');
