@@ -131,15 +131,15 @@ export default function getDDOResult() {
 		hHuman: hHuman
 	}
 
-	if(ddoObj.hNature >= 6) {
+	if(ddoObj.hNature >= 5) {
 		statInc('statTestDDOHumN');
-	} else if(ddoObj.hTech >= 6) {
+	} else if(ddoObj.hTech >= 5) {
 		statInc('statTestDDOHumT');
-	} else if(ddoObj.hArt >= 6) {
+	} else if(ddoObj.hArt >= 5) {
 		statInc('statTestDDOHumA');
-	} else if(ddoObj.hSign >= 6) {
+	} else if(ddoObj.hSign >= 5) {
 		statInc('statTestDDOHumS');
-	} else if(ddoObj.hHuman >= 6) {
+	} else if(ddoObj.hHuman >= 5) {
 		statInc('statTestDDOHumH');
 	}
 
