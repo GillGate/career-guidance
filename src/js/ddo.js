@@ -1,9 +1,10 @@
 import $ from "jquery";
 import Chart from 'chart.js';
 import {getValues, chartView} from './index.js';
+import statInc from './statistic.js';
 
 export default function getDDOResult() {
-	let ddoResult = getValues('ddo__button input:even');
+	let ddoResult = getValues('.golddo__button input:even');
 
 	let hNature = 0,
 		hTech 	= 0,
@@ -119,6 +120,28 @@ export default function getDDOResult() {
 		hSign,
 		hHuman
 	];
+
+	statInc('statTestDDO');
+
+	let ddoObj = {
+		hNature: hNature,
+		hTech: hTech,
+		hArt: hArt,
+		hSign: hSign,
+		hHuman: hHuman
+	}
+
+	if(ddoObj.hNature >= 6) {
+		statInc('statTestDDOHumN');
+	} else if(ddoObj.hTech >= 6) {
+		statInc('statTestDDOHumT');
+	} else if(ddoObj.hArt >= 6) {
+		statInc('statTestDDOHumA');
+	} else if(ddoObj.hSign >= 6) {
+		statInc('statTestDDOHumS');
+	} else if(ddoObj.hHuman >= 6) {
+		statInc('statTestDDOHumH');
+	}
 
 	let ctxDDO = document.querySelector('#ddoChart').getContext('2d');
 	

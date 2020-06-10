@@ -1,6 +1,7 @@
 import $ from "jquery";
 import Chart from 'chart.js';
 import {getValues, chartView} from './index.js';
+import statInc from './statistic.js';
 
 export default function getGollandResult() {
 	let gollandResult = getValues('.golddo__button input:even');
@@ -231,6 +232,31 @@ export default function getGollandResult() {
 		entrepreneurialPoints, 
 		artisticPoints
 	];
+
+	statInc('statTestGolland');
+
+	let gollandObj = {
+		realPoints: realPoints,
+		intellectualPoints: intellectualPoints,
+		socialPoints: socialPoints,
+		conventionalPoints: conventionalPoints,
+		entrepreneurialPoints: entrepreneurialPoints,
+		artisticPoints: artisticPoints
+	}
+
+	if(gollandObj.realPoints >= 8) {
+		statInc('statTestGollandReal');
+	} else if(gollandObj.intellectualPoints >= 8) {
+		statInc('statTestGollandInt');
+	} else if(gollandObj.socialPoints >= 8) {
+		statInc('statTestGollandSoc');
+	} else if(gollandObj.conventionalPoints >= 8) {
+		statInc('statTestGollandCon');
+	} else if(gollandObj.entrepreneurialPoints >= 8) {
+		statInc('statTestGollandPredp');
+	} else if(gollandObj.artisticPoints >= 8) {
+		statInc('statTestGollandArt');
+	}
 
 	let gollandArray = pointsArray.map(function(item) {
 		return Math.ceil((item / 14 * 100) / 10);

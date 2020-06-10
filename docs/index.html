@@ -17,7 +17,7 @@
 			</a>
 			<p class="header__caption">
 				<span>Модуль тестирования</span> <br>
-				по профориентации для школьников от Фонда социального страхования
+				по профориентации для школьников от <a href="https://www.fssblnr.su">Фонда социального страхования на случай безработицы в ЛНР</a>
 			</p>
 			<a href="https://www.fssblnr.su" class="header__logo header__logo--fss" target="_blank">
 				<img src="img/fsslnr.png" alt="Логотип фонда социального страхования">
@@ -43,7 +43,7 @@
 						<div class="statistic">
 							<div class="statistic__item">
 								<p class="statistic__text">
-									Прохождение теста&nbsp;<span class="statistic__open"> Айзенка</span>: <span>7</span>
+									Прохождение теста&nbsp;<span class="statistic__open"> Айзенка</span>: <span id="statTestIsenk"></span>
 								</p>
 								<div class="statistic__data">
 									<div class="statistic__leftside">
@@ -56,16 +56,16 @@
 										<h3 class="statistic__title">Общие результаты:</h3>
 										<div class="statistic__dataList">
 											<p class="statistic__dataItem">
-												Холерик: <span>0</span>
+												Холерик: <span id="statTestIsenkHol"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Сангвинник: <span>0</span>
+												Сангвинник: <span id="statTestIsenkSan"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Флегматик: <span>0</span>
+												Флегматик: <span id="statTestIsenkPhl"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Меланхолик: <span>0</span>
+												Меланхолик: <span id="statTestIsenkMel"></span>
 											</p>
 										</div>
 										<div class="statistic__close"></div>
@@ -74,7 +74,7 @@
 							</div>
 							<div class="statistic__item">
 								<p class="statistic__text">
-									Прохождение теста&nbsp;<span class="statistic__open"> Голланда</span>: <span>7</span>
+									Прохождение теста&nbsp;<span class="statistic__open"> Голланда</span>: <span id="statTestGolland"></span>
 								</p>
 								<div class="statistic__data">
 									<div class="statistic__leftside">
@@ -87,22 +87,22 @@
 										<h3 class="statistic__title">Общие результаты:</h3>
 										<div class="statistic__dataList">
 											<p class="statistic__dataItem">
-												Реалистический тип: <span>0</span>
+												Реалистический тип: <span id="statTestGollandReal"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Интеллектуальный тип: <span>0</span>
+												Интеллектуальный тип: <span id="statTestGollandInt"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Социальный тип: <span>0</span>
+												Социальный тип: <span id="statTestGollandSoc"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Конвенциональный тип: <span>0</span>
+												Конвенциональный тип: <span id="statTestGollandCon"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Предприимчивый тип: <span>0</span>
+												Предприимчивый тип: <span id="statTestGollandPredp"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Артистический тип: <span>0</span>
+												Артистический тип: <span id="statTestGollandArt"></span>
 											</p>
 										</div>
 										<div class="statistic__close"></div>
@@ -111,7 +111,7 @@
 							</div>
 							<div class="statistic__item">
 								<p class="statistic__text">
-									Прохождение теста&nbsp;<span class="statistic__open"> Климова</span>: <span>8</span>
+									Прохождение теста&nbsp;<span class="statistic__open"> Климова</span>: <span id="statTestDDO"></span>
 								</p>
 								<div class="statistic__data">
 									<div class="statistic__leftside">
@@ -124,19 +124,19 @@
 										<h3 class="statistic__title">Общие результаты:</h3>
 										<div class="statistic__dataList">
 											<p class="statistic__dataItem">
-												Человек-природа: <span>0</span>
+												Человек-природа: <span id="statTestDDOHumN"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Человек-техника: <span>0</span>
+												Человек-техника: <span id="statTestDDOHumT"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Человек-человек: <span>0</span>
+												Человек-человек: <span id="statTestDDOHumH"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Человек-худ. образ: <span>0</span>
+												Человек-худ. образ: <span id="statTestDDOHumA"></span>
 											</p>
 											<p class="statistic__dataItem">
-												Человек-знак. система: <span>0</span>
+												Человек-знак. система: <span id="statTestDDOHumS"></span>
 											</p>
 										</div>
 										<div class="statistic__close"></div>
@@ -145,7 +145,7 @@
 							</div>
 							<div class="statistic__item">
 								<p class="statistic__text">
-									Прохождение теста&nbsp;<span class="statistic__open"> Соционика</span>: <span>5</span>
+									Прохождение теста&nbsp;<span class="statistic__open"> Соционика</span>: <span id="statTestSocio"></span>
 								</p>
 								<div class="statistic__data">
 									<div class="statistic__leftside">
@@ -159,54 +159,54 @@
 										<div class="statistic__dataList">
 											<div class="statistic__dataBlock">
 												<p class="statistic__dataItem">
-													Лирик: <span>0</span>
+													Лирик: <span id="statTestSocio--iiei"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Посредник: <span>0</span>
+													Посредник: <span id="statTestSocio--iies"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Критик: <span>0</span>
+													Критик: <span id="statTestSocio--iili"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Мастер: <span>0</span>
+													Мастер: <span id="statTestSocio--iils"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Гуманист: <span>0</span>
+													Гуманист: <span id="statTestSocio--irei"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Хранитель: <span>0</span>
+													Хранитель: <span id="statTestSocio--ires"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Аналитик: <span>0</span>
+													Аналитик: <span id="statTestSocio--irli"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Предприниматель: <span>0</span>
+													Предприниматель: <span id="statTestSocio--erli"></span>
 												</p>
 											</div>
 											<div class="statistic__dataBlock">
 												<p class="statistic__dataItem">
-													Инициатор: <span>0</span>
+													Инициатор: <span id="statTestSocio--eiei"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Лидер: <span>0</span>
+													Лидер: <span id="statTestSocio--eies"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Искатель: <span>0</span>
+													Искатель: <span id="statTestSocio--eili"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Организатор: <span>0</span>
+													Организатор: <span id="statTestSocio--eils"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Артист: <span>0</span>
+													Артист: <span id="statTestSocio--erei"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Энтузиаст: <span>0</span>
+													Энтузиаст: <span id="statTestSocio--eres"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Систематик: <span>0</span>
+													Систематик: <span id="statTestSocio--irls"></span>
 												</p>
 												<p class="statistic__dataItem">
-													Администратор: <span>0</span>
+													Администратор: <span id="statTestSocio--erls"></span>
 												</p>
 											</div>
 										</div>
@@ -216,7 +216,7 @@
 							</div>
 						</div>
 						<p class="aside__text">
-							Посещаемость сайта: <span>64</span>
+							Посещаемость сайта: <span id="statTotal"></span>
 						</p>
 					</div>
 				</aside>

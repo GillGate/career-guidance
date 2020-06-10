@@ -1,5 +1,6 @@
 import $ from "jquery";
 import {getValues} from './index.js';
+import statInc from './statistic.js';
 
 export default function getSocioResult() {
 	let socioResult = getValues('.socio__button input:even');
@@ -170,4 +171,7 @@ export default function getSocioResult() {
 	let resultWord = firstLetter + secondLetter + thirdLetter + fourthLetter;
 	
 	$(`.testResult__item--${resultWord}`).show();
+
+	statInc('statTestSocio');
+	statInc(`statTestSocio--${resultWord}`);
 }

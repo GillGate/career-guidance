@@ -6,6 +6,7 @@ import getDDOResult from './ddo.js';
 import getSocioResult from './socio.js';
 import getIndexCharts from './charts.js';
 import Calendar2 from './calendar.js';
+import statInc from './statistic.js';
 
 export function getValues(selector) {
 	let values = $(selector);
@@ -56,20 +57,6 @@ $(function() {
 		}
 	});
 
-	$('.statistic').on('click', '.statistic__open', function() {
-		let $statBlock = $(this).closest('.statistic__item').find('.statistic__data');
-
-		$('.statistic__data').css('display', 'none');
-		$statBlock.css('display', 'flex');
-		$statBlock.fadeIn(450);
-	});
-
-	$('.statistic').on('click', '.statistic__close', function() {
-		let $statBlock = $(this).closest('.statistic__item').find('.statistic__data');
-
-		$statBlock.fadeOut(450);
-	});
-
 	$('.test__item:first').addClass('test__item--active');
 	$('.test__item:last').addClass('test__item--last');
 
@@ -79,26 +66,21 @@ $(function() {
 		window.setTimeout(function() {
 			$testItem.removeClass('test__item--active');
 			$testItem.next().addClass('test__item--active');
+
+			if($testItem.hasClass('test__item--last')) {
+				$test.slideUp(500);
+			}
 		}, 100);
-		
-
-		if($testItem.hasClass('test__item--last')) {
-			$test.fadeOut(500);
-			getResult($test);
-		}
 	});
 
-	$($test).on('dragstart', '.test__image img', function(e) {
-		e.preventDefault();
-	});
-	$('.home').on('dragstart', '.home__image img', function(e) {
-		e.preventDefault();
-	});
+	$('#first-option').on('click', function() {
+		getResult($test)
+	})
 
-	let golddoLazy = new LazyLoad({
-		elements_selector: ".golddo__image img, .testResult__image img"
-	});
-	
+	$('#second-option').on('click', function() {
+		getResult($test)
+	})
+
 	function getResult(test) {
 		$('.reveal__result').fadeIn(500);
 
@@ -118,9 +100,22 @@ $(function() {
 		}
 	}
 
+	$($test).on('dragstart', '.test__image img', function(e) {
+		e.preventDefault();
+	});
+	$('.home').on('dragstart', '.home__image img', function(e) {
+		e.preventDefault();
+	});
+
+	let golddoLazy = new LazyLoad({
+		elements_selector: ".golddo__image img, .testResult__image img"
+	});
+
 	let isHomePage = $('.home').hasClass('main__content');
 
 	if(isHomePage) {
+		statInc('statTotal');
+
 		getIndexCharts();
 		Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth());
 		document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
@@ -132,5 +127,4 @@ $(function() {
 		}
 	}
 
-	
 });

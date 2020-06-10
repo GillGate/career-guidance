@@ -1,12 +1,12 @@
 import $ from "jquery";
 import {getValues} from './index.js';
+import statInc from './statistic.js';
 
 export default function getIsenkResult() {
 	let isenkValues = getValues('.isenk__button--yes input');
 
 	let extraversionPoints 	= 0,
-		neuroticismPoints 	= 0,
-		liePoints 			= 0;
+		neuroticismPoints 	= 0;
 
 	let isExtrovert = false,
 		isStable = false;
@@ -163,13 +163,20 @@ export default function getIsenkResult() {
 		isStable = true;
 	}
 
+	statInc('statTestIsenk');
+
 	if((isExtrovert) && (isStable)) {
 		$('.isenkResult__item--sanguine').show();
+		statInc('statTestIsenkSan');
 	} else if((!isExtrovert) && (isStable)) {
 		$('.isenkResult__item--phlegmatic').show();
+		statInc('statTestIsenkPhl');
 	} else if((!isExtrovert) && (!isStable)) {
 		$('.isenkResult__item--melancholic').show();
+		statInc('statTestIsenkMel');
 	} else {
 		$('.isenkResult__item--choleric').show();
+		statInc('statTestIsenkHol');
 	}
+
 }
