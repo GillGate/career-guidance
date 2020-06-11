@@ -1,7 +1,6 @@
 import $ from "jquery";
 import {getValues} from './index.js';
 
-
 if(localStorage.getItem('init') == null) {
 	localStorage.setItem('statTotal', 0);
 
@@ -74,4 +73,17 @@ $('.statistic').on('click', '.statistic__close', function() {
 	let $statBlock = $(this).closest('.statistic__item').find('.statistic__data');
 
 	$statBlock.fadeOut(450);
+});
+
+
+
+fetch(
+  'https://api-metrika.yandex.net/stat/v1/data.csv?id=64530541&metrics=ym:s', {
+    headers: {
+      "Authorization": "OAuth 8165638639fd42279a938d9161e6b9b2"
+    } 
+  })
+  .then(r => r.json())
+  .then(metrikaApiJSON => {
+    console.log(metrikaApiJSON);
 });
