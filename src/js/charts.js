@@ -7,10 +7,10 @@ export default function getIndexCharts() {
 	let ctxDDOStat = document.querySelector('#ddoStatisitc').getContext('2d');
 	let ctxSocioStat = document.querySelector('#socioStatisitc').getContext('2d');
 
-	let isenkArray 		= [2, 2, 2, 0, 0, 0, 1];
-	let gollandArray 	= [1, 1, 2, 2, 0, 0, 2];
-	let ddoArray 		= [2, 2, 1, 1, 0, 0, 2];
-	let socioArray 		= [2, 1, 2, 0, 0, 0, 0];
+	let isenkArray 		= [3, 2, 1, 0, 4, 4, 2];
+	let gollandArray 	= [3, 2, 0, 1, 5, 2, 1];
+	let ddoArray 		= [4, 1, 3, 0, 3, 4, 2];
+	let socioArray 		= [5, 3, 2, 1, 3, 4, 2];
 
 	let currentDay 	= new Date();
 	let dateArray 	= [currentDay.getDate()];
